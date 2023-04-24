@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="41dc5c49-28d9-4ec8-96e6-64120f337a27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +56,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2OHEfaaOP4n3TcbWgnlSz74hN9s" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -168,8 +173,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.CardTest.shouldSendForm" />
-        <item itemvalue="Gradle.CardTest.orderFormTest" />
         <item itemvalue="Gradle.CardTest" />
+        <item itemvalue="Gradle.CardTest.orderFormTest" />
       </list>
     </recent_temporary>
   </component>

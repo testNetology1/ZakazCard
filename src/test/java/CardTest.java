@@ -12,27 +12,31 @@ import java.time.format.DateTimeFormatter;
 
 public class CardTest {
     @BeforeEach
-    public void setup () {
+    public void setup() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
     }
-    public String generateDate(long days, String pattern) {
-        return LocalDate.now().plusDays (days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+
+    public String generateDate(long days, String ignoredPattern) {
+        return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test
     void shouldSendForm() {
-        $ (LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        $(LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
         $("[data-test-id='city'] input").setValue("Уфа");
         $("[data-test-id='date'] input").doubleClick();
         $("[data-test-id='date'] input").sendKeys(Keys.DELETE);
         String date = generateDate( 3,"dd.MM.yyyy");
         $("[data-test-id='date'] input").setValue(date);
         $("[data-test-id='name'] input").setValue("Долгая Аля Карловна");
-        $("[data-test-id='phone'] input").setValue("+79122222222");
+        $("[data-test-id='phone'] input").setValue("+79123456789");
         $("[data-test-id=agreement]").click();
         $$("button").find(Condition.exactText("Забронировать")).click();
         $("[data-test-id='notification']").shouldBe(Condition.visible, Duration.ofSeconds(15));
         $(".notification__content").shouldHave(Condition.ownText(date));
     }
 }
+
+
