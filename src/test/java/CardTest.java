@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -10,19 +11,25 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class CardTest {
+    @BeforeEach
+    public void setup () {
+        Configuration.holdBrowserOpen = true;
+        open("http://localhost:9999");
+    }
+    public String generateDate(long days, String pattern) {
+        return LocalDate.now().plusDays (days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+    }
 
     @Test
     void shouldSendForm() {
-        Configuration.headless = true;
-        Configuration.holdBrowserOpen = true;
-        String date = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999");
+        $ (LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
         $("[data-test-id='city'] input").setValue("Уфа");
         $("[data-test-id='date'] input").doubleClick();
         $("[data-test-id='date'] input").sendKeys(Keys.DELETE);
+        String date = generateDate( 3,"dd.MM.yyyy");
         $("[data-test-id='date'] input").setValue(date);
-        $("[data-test-id='name'] input").setValue("Долгая Аля");
-        $("[data-test-id='phone'] input").setValue("+74457786643");
+        $("[data-test-id='name'] input").setValue("Долгая Аля Карловна");
+        $("[data-test-id='phone'] input").setValue("+79122222222");
         $("[data-test-id=agreement]").click();
         $$("button").find(Condition.exactText("Забронировать")).click();
         $("[data-test-id='notification']").shouldBe(Condition.visible, Duration.ofSeconds(15));
