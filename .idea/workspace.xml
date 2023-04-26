@@ -74,7 +74,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.CardTest.shouldSendForm">
+  <component name="RunManager" selected="Gradle.CardTest">
     <configuration name="CardTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -171,8 +171,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CardTest.shouldSendForm" />
         <item itemvalue="Gradle.CardTest" />
+        <item itemvalue="Gradle.CardTest.shouldSendForm" />
         <item itemvalue="Gradle.CardTest.orderFormTest" />
       </list>
     </recent_temporary>

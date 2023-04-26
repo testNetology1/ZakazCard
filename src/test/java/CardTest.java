@@ -1,15 +1,14 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
-import static com.codeborne.selenide.Selenide.*;
-
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import static com.codeborne.selenide.Selenide.*;
 
 public class CardTest {
     @BeforeEach
@@ -37,7 +36,7 @@ public class CardTest {
         $$("button").find(Condition.exactText("Забронировать")).click();
        // $("[data-test-id='notification']").shouldBe(Condition.visible, Duration.ofSeconds(15));
         $(".notification__content")
-                .shouldHave(Condition.text("Встреча успешно забронирована на  + verificationDate)"
+                .shouldHave(Condition.text("Встреча успешно забронирована на  + planningDate)"
                ), Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
         ///$(".notification__content").shouldHave(Condition.ownText(date));
