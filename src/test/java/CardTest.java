@@ -11,9 +11,15 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class CardTest {
-
+    public void setup () {
+        Configuration.holdBrowserOpen = true;
+        open("http://localhost:9999");
+    }
+    public String generateDate(long days, String pattern) {
+        return LocalDate.now().plusDays (days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+    }
     @Test
-    public void DeliveryCard() {
+    void shouldSendForm() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Уфа");
